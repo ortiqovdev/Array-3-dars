@@ -56,3 +56,51 @@ console.log(index !=-1);
 //     }
 // }
 // console.log(yes);
+
+
+// Yangi masalalar👇👇👇
+// typescript ga prompt ulash uchun 👇
+import { log } from "console";
+import PromptSync from "prompt-sync";
+const prompt = PromptSync();
+
+// Masalani yechilishi 👇
+let names: string[] = []
+let soni: number = 5
+for (let i = 1; i <= 5; i++) {
+    let name: string = prompt(`${i}-Ismlarni kiriting: `)
+    names.push(name)
+}
+console.log(names);
+console.log('Ammallar :');
+console.log('1. Ism topish');
+console.log('2. Ism qo`shish');
+console.log('3. Ism o`chirish');
+
+while (true) {
+    const op: string = prompt('Qaysi amal? :')
+
+    if (op == '1') {
+        let name: string = prompt('Qaysi ism: ')
+        let index: number = names.indexOf(name)
+        console.log(index);
+
+    } else if (op == '2') {
+        let name: string = prompt('Ism kiriting: ')
+        names.push(name)
+        console.log(names);
+    }
+    else if (op == '3') {
+        let index: number = +prompt('Nechanchi ism: ')
+        names.splice(index, 1)
+        console.log(names);
+
+    } else if (op == 'exit') {
+        break
+    }
+    else {
+        throw new Error("Amal " + op + "topilmadi");
+
+    }
+}
+
